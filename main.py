@@ -17,9 +17,8 @@ def name_and_login():
         token = open("token", "r").read()
 
         subprocess.run(["mullvad", "account", "logout"],  stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT); subprocess.run(["mullvad", "account", "login", token],  stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
-        time.sleep(2)
         subprocess.run(["mullvad", "connect"], capture_output=False, text=False)
-        time.sleep(1)
+        
         return name_and_login()
         
     elif len(lines) == 3:
